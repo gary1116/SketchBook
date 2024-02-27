@@ -1,7 +1,7 @@
 let number;
 const mainGrid = document.querySelector(".grid-container");
 const random = document.querySelector('.btn-info');
-let colors = ['#CC9933', '#669933', '#0033FF', '#99FFCC', '#FF00CC', '#FF3366', '#FF0033', '#FFFF33', '#000000', '#03A9F4','#8D6E63','#388E3C','#00FFFF', '#088F8F','#F0E68C','#DFFF00','#FFBF00']
+let colors = ['#CC9933', '#669933', '#0033FF', '#99FFCC', '#FF00CC', '#FF3366', '#FF0033', '#FFFF33','#FFC437','#5BFFC9','#F65BFF', '#A9A9A9', '#03A9F4','#8D6E63','#388E3C','#00FFFF', '#088F8F','#F0E68C','#DFFF00','#FFBF00']
 let isDrawing = false;
 const dark = document.querySelector('.btn-dark');
 
