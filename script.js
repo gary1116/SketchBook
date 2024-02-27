@@ -1,8 +1,9 @@
 let number;
 const mainGrid = document.querySelector(".grid-container");
+const random = document.querySelector('.btn-info');
 let colors = ['#CC9933', '#669933', '#0033FF', '#99FFCC', '#FF00CC', '#FF3366', '#FF0033', '#FFFF33', '#000000', '#03A9F4','#8D6E63','#388E3C','#00FFFF', '#088F8F','#F0E68C','#DFFF00','#FFBF00']
 let isDrawing = false;
-let random_color = colors[(Math.floor( Math.random() * colors.length))]; 
+const dark = document.querySelector('.btn-dark');
 
 
 function getValue() {
@@ -12,6 +13,12 @@ function getValue() {
         alert("Please pick a number between 1 and 100!");
     }
     createGrid(number);
+}
+
+function handleEnter(event){
+    if(event.key ==='Enter'){
+        getValue();
+    }
 }
 
 let createGrid = (size) => {
@@ -38,13 +45,17 @@ mainGrid.addEventListener('mouseup', () => {
     isDrawing = false;
 });
 
-mainGrid.addEventListener('mouseover', (event) => {
-    if (isDrawing) {
-        if (event.target.classList.contains('grid-item')) {
-            event.target.style.backgroundColor = 'black';
+function black(){
+
+    mainGrid.addEventListener('mouseover', (event) => {
+        if (isDrawing) {
+            if (event.target.classList.contains('grid-item')) {
+                event.target.style.backgroundColor = 'black';
+            }
         }
-    }
-});
+    });
+}
+dark.addEventListener('click', black);
 
 let clearAll = () => {
     const cells = document.querySelectorAll('.grid-item');
@@ -54,3 +65,16 @@ let clearAll = () => {
 }
 
 
+
+function changeColor() {
+    mainGrid.addEventListener('mouseover', (event) => {
+        if (isDrawing) {
+            let random_color = colors[Math.floor(Math.random() * colors.length)];
+            if (event.target.classList.contains('grid-item')) {
+                event.target.style.backgroundColor = random_color;
+            }
+        }
+    });
+}
+
+random.addEventListener('click' , changeColor);
